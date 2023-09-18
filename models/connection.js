@@ -6,8 +6,8 @@ const sequelize = new Sequelize("sequelize", "postgres", "password", {
 });
 
 try {
-  await sequelize.authenticate();
-  console.log("Connection has been established successfully.");
+  sequelize.authenticate();
+  console.log("Database connection successfull.");
 } catch (error) {
   console.error("Unable to connect to the database:", error);
 }
