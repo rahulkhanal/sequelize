@@ -1,1 +1,1 @@
-create a database. and make server and database connection
+create a database and make server and database connection.
