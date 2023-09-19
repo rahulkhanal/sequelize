@@ -13,3 +13,6 @@ try {
 }
 
 module.exports = sequelize;
+
+
+// sequelize.drop() // drop all table from database

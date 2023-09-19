@@ -4,21 +4,24 @@ const sequelize = require("./connection");
 const User = sequelize.define(
   "User",
   {
-    // Model attributes are defined here
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     lastName: {
-      type: DataTypes.STRING,
       // allowNull defaults to true
+      type: DataTypes.STRING,
+      // defaultValue: ""
+      // unique: true
     },
   },
   {
-    // same table name as model
-    freezeTableName: true,
+    freezeTableName: true, // same table name as model
+    // timestamps: false, //if we want no createdAt and updatedAt
+    // createdAt: true,
+    // updatedAt: false
+    // updatedAt: "updated_at", //change name
   }
 );
 
-// `sequelize.define` also returns the model
-// console.log(User === sequelize.models.User); // true
+module.exports = User;
