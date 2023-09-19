@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const { addUser } = require("./controllers/user");
 require("dotenv").config();
-const User = require("./models/user");
+require("./models/connection");
+// const User = require("./models/user");
 
 //-----model
 // User.sync({ force: true });  //if user table exists then it creates one deleting other
@@ -16,6 +18,8 @@ const PORT = process.env.PORT || 8282;
 //-----middlewares
 app.use(bodyParser.json());
 
+//----routes
+app.get("/add", addUser);
 //-----server
 app.listen(PORT, (err) => {
   if (err) throw err;
