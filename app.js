@@ -6,6 +6,7 @@ const {
   getAllUser,
   getSingleUser,
   deleteSingleUser,
+  updateSingleUser,
 } = require("./controllers/user");
 require("dotenv").config();
 require("./models/connection");
@@ -28,6 +29,7 @@ app.post("/add-user", addUser);
 app.get("/get-all-users", getAllUser);
 app.get("/get-single-users/:id", getSingleUser);
 app.delete("/delete-single-users/:id", deleteSingleUser);
+app.patch("/update-single-users/:id", updateSingleUser);
 
 //-----server
 app.listen(PORT, (err) => {

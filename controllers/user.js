@@ -56,12 +56,13 @@ var deleteSingleUser = async (req, resp) => {
 //update user
 var updateSingleUser = async (req, resp) => {
   const { id } = req.params;
-  const data = await User.destroy({
+  const updatedDta = req.body;
+  const data = await User.update(updatedDta, {
     where: {
       id: id,
     },
   });
-  resp.status(200).json({ message: "Deleted Sucessfully", data });
+  resp.status(200).json({ message: "Updated Sucessfully", data });
 };
 
 module.exports = {
