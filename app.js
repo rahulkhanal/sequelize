@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 8282;
 app.use(bodyParser.json());
 
 //----routes
-app.get("/add", addUser);
+app.post("/add-user", addUser);
 app.get("/get-all-users", getAllUser);
 app.get("/get-single-users/:id", getSingleUser);
 //-----server
