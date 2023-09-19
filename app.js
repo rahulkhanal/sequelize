@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const { addUser } = require("./controllers/user");
+const { addUser, getAllUser, getSingleUser } = require("./controllers/user");
 require("dotenv").config();
 require("./models/connection");
 // const User = require("./models/user");
@@ -20,6 +20,8 @@ app.use(bodyParser.json());
 
 //----routes
 app.get("/add", addUser);
+app.get("/get-all-users", getAllUser);
+app.get("/get-single-users/:id", getSingleUser);
 //-----server
 app.listen(PORT, (err) => {
   if (err) throw err;

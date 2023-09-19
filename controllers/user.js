@@ -9,4 +9,17 @@ var addUser = async (req, resp) => {
     .status(200);
 };
 
-module.exports = { addUser };
+var getAllUser = async (req, resp) => {
+  const data = await User.findAll();
+  resp.status(200).json({ data });
+};
+var getSingleUser = async (req, resp) => {
+  const { id } = req.params;
+  const data = await User.findOne({
+    where: {
+      id: id,
+    },
+  });
+  resp.status(200).json({ data });
+};
+module.exports = { addUser, getAllUser, getSingleUser };
