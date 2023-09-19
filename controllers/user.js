@@ -8,7 +8,7 @@ var addUser = async (req, resp) => {
     await User.bulkCreate(data); //if tablename is similar to req.body name
     // data.map(async (item) => {
     //     const { fname, lname } = item;
-    //   await User.create({ firstName: fname, lastName: lname });
+    //   requestDta = await User.create({ firstName: fname, lastName: lname });
     // });
     resp.json({ message: "product inserted successfully", data }).status(200);
   } else {
@@ -42,4 +42,32 @@ var getSingleUser = async (req, resp) => {
   resp.status(200).json({ data });
 };
 
-module.exports = { addUser, getAllUser, getSingleUser };
+//delete user
+var deleteSingleUser = async (req, resp) => {
+  const { id } = req.params;
+  const data = await User.destroy({
+    where: {
+      id: id,
+    },
+  });
+  resp.status(200).json({ message: "Deleted Sucessfully", data });
+};
+
+//update user
+var updateSingleUser = async (req, resp) => {
+  const { id } = req.params;
+  const data = await User.destroy({
+    where: {
+      id: id,
+    },
+  });
+  resp.status(200).json({ message: "Deleted Sucessfully", data });
+};
+
+module.exports = {
+  addUser,
+  getAllUser,
+  getSingleUser,
+  deleteSingleUser,
+  updateSingleUser,
+};

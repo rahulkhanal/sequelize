@@ -1,7 +1,12 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const { addUser, getAllUser, getSingleUser } = require("./controllers/user");
+const {
+  addUser,
+  getAllUser,
+  getSingleUser,
+  deleteSingleUser,
+} = require("./controllers/user");
 require("dotenv").config();
 require("./models/connection");
 // const User = require("./models/user");
@@ -22,6 +27,8 @@ app.use(bodyParser.json());
 app.post("/add-user", addUser);
 app.get("/get-all-users", getAllUser);
 app.get("/get-single-users/:id", getSingleUser);
+app.delete("/delete-single-users/:id", deleteSingleUser);
+
 //-----server
 app.listen(PORT, (err) => {
   if (err) throw err;
