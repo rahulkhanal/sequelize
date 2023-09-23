@@ -12,8 +12,8 @@ var addUser = async (req, resp) => {
     // });
     resp.json({ message: "product inserted successfully", data }).status(200);
   } else {
-    const { fname, lname } = data;
-    const jane = User.build({ firstName: fname, lastName: lname });
+    const { fname, myFooId } = data;
+    const jane = User.build({ firstName: fname, myFooId: myFooId });
     await jane.save();
     // OR use User.create(req.body) i.e build+save
     resp

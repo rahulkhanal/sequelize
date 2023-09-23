@@ -17,6 +17,16 @@ const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 db.user = require("./user")(sequelize, DataTypes);
+db.contact = require("./contact")(sequelize, DataTypes);
+
+db.contact.hasOne(db.user, {
+  foreignKey: "myFooId",
+  onDelete: "RESTRICT",
+  onUpdate: "CASCADE",
+}), //custom foreign key name but you will het both myFoodId and contactID
+
+db.user.belongsTo(db.contact); //contactID must be added to user
+
 db.sequelize.sync({ force: false }); // sync all model instead individually
 
 module.exports = db;

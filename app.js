@@ -8,6 +8,8 @@ const {
   deleteSingleUser,
   updateSingleUser,
 } = require("./controllers/user");
+const { oneToOne } = require("./controllers/one-to-one");
+const { addContact } = require("./controllers/contact");
 require("dotenv").config();
 require("./models/connection");
 // const User = require("./models/user");
@@ -30,6 +32,10 @@ app.get("/get-all-users", getAllUser);
 app.get("/get-single-users/:id", getSingleUser);
 app.delete("/delete-single-users/:id", deleteSingleUser);
 app.patch("/update-single-users/:id", updateSingleUser);
+
+app.post("/add-contact", addContact);
+
+app.get("/one-to-one", oneToOne);
 
 //-----server
 app.listen(PORT, (err) => {

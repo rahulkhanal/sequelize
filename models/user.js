@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
         // defaultValue: ""
         // unique: true
       },
+      midName: {
+        // allowNull defaults to true
+        type: DataTypes.STRING,
+        // defaultValue: ""
+        // unique: true
+      },
     },
     {
       freezeTableName: true, // same table name as model
